@@ -1,5 +1,11 @@
 # Second Horizon Bank Management System
 
+## Overview:
+- A bank management system to handle customers, accounts, and bank branch financial data.
+- Intended for employees of the bank, such as tellers or advisors.
+- **Functionality:** information on customers, accounts, branches, with summary reports and transactions
+- No known issues, aside from the not fully comprehensive information stored in the database (hurts practical use, still works as a proof of concept).
+
 ## 1. Programming Language and Version
 - **Language:** Python 3.6 or higher
 
