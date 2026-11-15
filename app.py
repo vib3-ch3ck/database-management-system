@@ -207,27 +207,22 @@ def transfer_funds():
     
     try:
         
-        cursor.execute("SELECT balance, status FROM acounts WHERE account_num = ?", (source_acc,))
+        cursor.execute("SELECT balance FROM accounts WHERE account_num = ?", (source_acc,))
         source_data = cursor.fetchone()
         if not source_data:
             print("Error: Source account not found.")
             return
-        if source_data[1] != 'Active':
-             print("Error: Source account is not Active.")
-             return
         if source_data[0] < amount:
             print(f"Error: Insufficient funds. Balance is ${source_data[0]:.2f}.")
             return
 
         
-        cursor.execute("SELECT status FROM accounts WHERE account_num = ?", (dest_acc,))
+        cursor.execute("SELECT balance FROM accounts WHERE account_num = ?", (dest_acc,))
+        
         dest_data = cursor.fetchone()
         if not dest_data:
             print("Error: Destination account not found.")
             return
-        if dest_data[0] != 'Active':
-             print("Error: Destination account is not Active.")
-             return
 
         
         conn.execute("BEGIN TRANSACTION;")
