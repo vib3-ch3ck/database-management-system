@@ -1,11 +1,6 @@
 import sqlite3
 import sys
 
-#for image
-import tkinter as tk
-from PIL import Image, ImageTk
-import os
-
 DB_NAME = "dbms.db"
 
 def get_db_connection():
